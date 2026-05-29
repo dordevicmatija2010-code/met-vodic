@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kviz — Pronađi svoj smer | MET Vodič</title>
+  <meta name="description" content="Swipe kviz od 12 kartica: prevlači levo ili desno i otkrij koji smer Univerziteta Metropolitan ti najviše odgovara." />
+  <meta name="theme-color" content="#0E1B36" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Swipe kviz — Pronađi svoj smer | MET Vodič" />
+  <meta property="og:description" content="Prevlači kartice i otkrij svoj smer na Univerzitetu Metropolitan." />
+  <meta property="og:locale" content="sr_RS" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Glavna navigacija">
+        <a class="brand" href="index.html" aria-label="MET Vodič — početna">
+          <span class="brand__mark" aria-hidden="true">M</span>
+          <span class="brand__name">MET<b>Vodič</b></span>
+        </a>
+        <button class="nav__toggle" aria-label="Otvori meni" aria-expanded="false" aria-controls="nav-menu">
+          <span aria-hidden="true"></span>
+        </button>
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="index.html">Početna</a></li>
+          <li><a class="nav__link" href="smerovi.html">Smerovi</a></li>
+          <li><a class="nav__link" href="kviz.html" aria-current="page">Kviz</a></li>
+          <li><a class="nav__link" href="upis.html">Upis</a></li>
+          <li><a class="nav__link" href="izvori.html">Izvori</a></li>
+          <li><a class="btn btn--primary btn--sm nav__cta" href="kviz.html">Uradi kviz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="quiz section">
+    <div class="container">
+
+      <div class="quiz__head">
+        <h1>Prevlači i otkrij svoj smer</h1>
+        <p>Pojaviće se 12 tvrdnji. Prevuci karticu <strong>desno</strong> ako je to baš ti, ili <strong>levo</strong> ako nije.
+           Možeš i da koristiš dugmad ✗ / ✓ ili strelice na tastaturi.</p>
+      </div>
+
+      <!-- ===== Špil + kontrole (skriva se na kraju) ===== -->
+      <div class="deck-area" id="deckArea">
+
+        <!-- Progres -->
+        <div class="progress">
+          <div class="progress__meta">
+            <span id="progressLabel">1/12</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="progress__bar">
+            <div class="progress__fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <!-- Špil (kartice ubacuje quiz.js) -->
+        <div class="deck" id="deck" aria-live="polite" aria-label="Špil kartica sa tvrdnjama">
+          <!-- swipe kartice se generišu u JS-u -->
+        </div>
+
+        <!-- Kontrole -->
+        <div class="deck-controls">
+          <button class="swipe-btn swipe-btn--no" id="btnNo" type="button" aria-label="Nije za mene (prevuci levo)">✗</button>
+          <button class="swipe-btn swipe-btn--yes" id="btnYes" type="button" aria-label="To sam ja (prevuci desno)">✓</button>
+        </div>
+        <p class="center" style="color:var(--muted);font-size:var(--fs-xs);margin-top:var(--sp-4)">
+          Tastatura: ← nije za mene · → to sam ja
+        </p>
+      </div>
+
+      <!-- ===== Rezultat (prikazuje quiz.js) ===== -->
+      <section class="result" id="result" hidden aria-live="polite">
+        <div class="result__head">
+          <h2>Tvoj smer je…</h2>
+          <p>Na osnovu tvojih swipe-ova, evo šta ti najviše odgovara.</p>
+        </div>
+
+        <article class="result-main">
+          <span class="result-main__badge">Najbolje poklapanje</span>
+          <div class="result-main__emoji" id="resEmoji" aria-hidden="true">🎯</div>
+          <h3 id="resName">—</h3>
+          <p class="result-main__faculty" id="resFaculty">—</p>
+          <p id="resDesc">—</p>
+          <p class="result-main__score" id="resScore"></p>
+          <a class="btn btn--primary btn--lg" id="resLink" href="#" target="_blank" rel="noopener">Istraži program ↗</a>
+        </article>
+
+        <div class="result-alts" id="resAlts">
+          <h4>Razmotri i ove smerove</h4>
+          <div class="alt-grid" id="altGrid">
+            <!-- alternative ubacuje quiz.js -->
+          </div>
+        </div>
+
+        <!-- ===== Preporuči prijatelju ===== -->
+        <div class="share" id="shareBox">
+          <div class="share__icon" aria-hidden="true">📨</div>
+          <h4>Misliš da bi ovo leglo nekom drugaru?</h4>
+          <p id="shareLead">Pošalji mu predlog smera — dobiće gotovu poruku sa linkom.</p>
+          <div class="btn-row btn-row--center" id="shareBtns">
+            <button class="btn btn--primary" id="shareNative" type="button" hidden>📲 Podeli</button>
+            <a class="btn btn--primary" id="shareWa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a class="btn btn--ghost" id="shareMail" href="#">✉️ Mejl</a>
+            <button class="btn btn--ghost" id="shareCopy" type="button">🔗 Kopiraj poruku</button>
+          </div>
+          <p class="share__status" id="shareStatus" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="result__actions">
+          <div class="btn-row btn-row--center">
+            <button class="btn btn--ghost btn--lg" id="btnRetry" type="button">↻ Probaj ponovo</button>
+            <a class="btn btn--primary btn--lg" href="upis.html">Kako se upisuje →</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="MET Vodič — početna">
+            <span class="brand__mark" aria-hidden="true">M</span>
+            <span class="brand__name">MET<b>Vodič</b></span>
+          </a>
+          <p>Nezvanični vodič koji pomaže srednjoškolcima da izaberu smer na Univerzitetu Metropolitan. Autorski projekat za „Make IT Day @ MET”.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sekcije</h4>
+          <ul>
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="smerovi.html">Smerovi</a></li>
+            <li><a href="kviz.html">Kviz</a></li>
+            <li><a href="upis.html">Upis</a></li>
+            <li><a href="izvori.html">Izvori</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Lokacije</h4>
+          <p class="footer-loc"><b>Beograd</b><br />Tadeuša Košćuška 63</p>
+          <p class="footer-loc mt-4"><b>Niš</b><br />Bulevar Svetog Cara Konstantina 80A</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 MET Vodič — autorski takmičarski rad.</span>
+        <span>Nezvanično. Za tačne informacije proveri <a href="https://www.metropolitan.ac.rs/" target="_blank" rel="noopener">metropolitan.ac.rs</a>.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

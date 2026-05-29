@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smerovi — MET Vodič</title>
+  <meta name="description" content="Pet smerova na Univerzitetu Metropolitan objašnjeni jasno: za koga su, koji su predmeti, veštine i poslovi. Uporedi i izaberi." />
+  <meta name="theme-color" content="#0E1B36" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Smerovi — MET Vodič" />
+  <meta property="og:description" content="Pet smerova Univerziteta Metropolitan: za koga su, predmeti, veštine, poslovi." />
+  <meta property="og:locale" content="sr_RS" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Glavna navigacija">
+        <a class="brand" href="index.html" aria-label="MET Vodič — početna">
+          <span class="brand__mark" aria-hidden="true">M</span>
+          <span class="brand__name">MET<b>Vodič</b></span>
+        </a>
+        <button class="nav__toggle" aria-label="Otvori meni" aria-expanded="false" aria-controls="nav-menu">
+          <span aria-hidden="true"></span>
+        </button>
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="index.html">Početna</a></li>
+          <li><a class="nav__link" href="smerovi.html" aria-current="page">Smerovi</a></li>
+          <li><a class="nav__link" href="kviz.html">Kviz</a></li>
+          <li><a class="nav__link" href="upis.html">Upis</a></li>
+          <li><a class="nav__link" href="izvori.html">Izvori</a></li>
+          <li><a class="btn btn--primary btn--sm nav__cta" href="kviz.html">Uradi kviz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Mini hero -->
+    <section class="hero" style="padding-block: clamp(2.5rem,1.5rem+5vw,4.5rem)">
+      <div class="container">
+        <div class="hero__inner">
+          <span class="hero__badge"><span class="dot" aria-hidden="true"></span> 5 smerova</span>
+          <h1>Smerovi koji se <span class="accent">isplate da poznaješ</span></h1>
+          <p class="hero__sub">
+            Tehnologija, biznis i dizajn — svaki smer ima svoju priču. Pogledaj za koga je,
+            šta se uči i gde te vodi. Nisi siguran? <a href="kviz.html" style="color:var(--gold-400)">Uradi kviz</a> i dobićeš predlog.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kartice smerova -->
+    <section class="section section--paper">
+      <div class="container">
+        <span class="eyebrow">Pregled smerova</span>
+        <h2 class="section-title">Svaki smer ukratko</h2>
+        <p class="section-lead">Klikni „Istraži program” da otvoriš zvaničnu stranicu smera na MET-u sa svim detaljima.</p>
+
+        <div class="grid grid--auto mt-6">
+
+          <!-- SI -->
+          <article class="program-card">
+            <div class="program-card__top">
+              <span class="program-card__tag">SI · 💻</span>
+              <h3>Softversko inženjerstvo</h3>
+              <p class="program-card__faculty">Fakultet informacionih tehnologija</p>
+            </div>
+            <div class="program-card__body">
+              <p class="program-card__who"><b>Za koga:</b> voliš da rešavaš probleme kodom i praviš aplikacije koje ljudi stvarno koriste.</p>
+              <div class="spec-block">
+                <h4>Ključni predmeti</h4>
+                <ul>
+                  <li>Programiranje</li>
+                  <li>Algoritmi i strukture podataka</li>
+                  <li>Baze podataka</li>
+                  <li>Web razvoj</li>
+                  <li>Softverski inženjering</li>
+                </ul>
+              </div>
+              <div class="spec-block">
+                <h4>Veštine</h4>
+                <div class="tag-list">
+                  <span class="tag">programiranje</span>
+                  <span class="tag">timski razvoj</span>
+                  <span class="tag">dizajn sistema</span>
+                </div>
+              </div>
+              <div class="spec-block">
+                <h4>Mogući poslovi</h4>
+                <p class="program-card__who">Software developer · backend/frontend · mobilni developer</p>
+              </div>
+            </div>
+            <div class="program-card__foot">
+              <a class="btn btn--outline-ink btn--block" href="https://www.metropolitan.ac.rs/osnovne-studije/fakultet-informacionih-tehnologija/softversko-inzenjerstvo/" target="_blank" rel="noopener">Istraži program ↗</a>
+            </div>
+          </article>
+
+          <!-- RVI -->
+          <article class="program-card">
+            <div class="program-card__top">
+              <span class="program-card__tag">RVI · 🎮</span>
+              <h3>Razvoj video igara</h3>
+              <p class="program-card__faculty">Fakultet informacionih tehnologija</p>
+            </div>
+            <div class="program-card__body">
+              <p class="program-card__who"><b>Za koga:</b> voliš igre i ne želiš samo da ih igraš — hoćeš da ih praviš.</p>
+              <div class="spec-block">
+                <h4>Ključni predmeti</h4>
+                <ul>
+                  <li>Programiranje igara</li>
+                  <li>Game engine</li>
+                  <li>3D grafika</li>
+                  <li>Dizajn nivoa</li>
+                  <li>Matematika za igre</li>
+                </ul>
+              </div>
+              <div class="spec-block">
+                <h4>Veštine</h4>
+                <div class="tag-list">
+                  <span class="tag">game dev</span>
+                  <span class="tag">gejmplej logika</span>
+                  <span class="tag">vizuelni dizajn</span>
+                </div>
+              </div>
+              <div class="spec-block">
+                <h4>Mogući poslovi</h4>
+                <p class="program-card__who">Game developer · gameplay programer · tehnički dizajner</p>
+              </div>
+            </div>
+            <div class="program-card__foot">
+              <a class="btn btn--outline-ink btn--block" href="https://www.metropolitan.ac.rs/osnovne-studije/fakultet-informacionih-tehnologija/razvoj-video-igara/" target="_blank" rel="noopener">Istraži program ↗</a>
+            </div>
+          </article>
+
+          <!-- DBM -->
+          <article class="program-card">
+            <div class="program-card__top">
+              <span class="program-card__tag">DBM · 📈</span>
+              <h3>Digitalni biznis i marketing</h3>
+              <p class="program-card__faculty">Fakultet za menadžment</p>
+            </div>
+            <div class="program-card__body">
+              <p class="program-card__who"><b>Za koga:</b> zanimaju te biznis, brendovi, društvene mreže i online prodaja.</p>
+              <div class="spec-block">
+                <h4>Ključni predmeti</h4>
+                <ul>
+                  <li>Digitalni marketing</li>
+                  <li>E-biznis</li>
+                  <li>Menadžment</li>
+                  <li>Analitika</li>
+                  <li>Društveni mediji</li>
+                </ul>
+              </div>
+              <div class="spec-block">
+                <h4>Veštine</h4>
+                <div class="tag-list">
+                  <span class="tag">marketing strategija</span>
+                  <span class="tag">analitika</span>
+                  <span class="tag">komunikacija</span>
+                </div>
+              </div>
+              <div class="spec-block">
+                <h4>Mogući poslovi</h4>
+                <p class="program-card__who">Digital marketer · social media manager · biznis menadžer</p>
+              </div>
+            </div>
+            <div class="program-card__foot">
+              <a class="btn btn--outline-ink btn--block" href="https://www.metropolitan.ac.rs/osnovne-studije/fakultet-za-menadzment/digitalni-biznis-i-marketing/" target="_blank" rel="noopener">Istraži program ↗</a>
+            </div>
+          </article>
+
+          <!-- GD -->
+          <article class="program-card">
+            <div class="program-card__top">
+              <span class="program-card__tag">GD · 🎨</span>
+              <h3>Grafički dizajn</h3>
+              <p class="program-card__faculty">Fakultet digitalnih umetnosti</p>
+            </div>
+            <div class="program-card__body">
+              <p class="program-card__who"><b>Za koga:</b> voliš vizuelno izražavanje, tipografiju i jake brendove.</p>
+              <div class="spec-block">
+                <h4>Ključni predmeti</h4>
+                <ul>
+                  <li>Tipografija</li>
+                  <li>Vizuelne komunikacije</li>
+                  <li>Ilustracija</li>
+                  <li>Vizuelni identitet</li>
+                </ul>
+              </div>
+              <div class="spec-block">
+                <h4>Veštine</h4>
+                <div class="tag-list">
+                  <span class="tag">vizuelni dizajn</span>
+                  <span class="tag">kreativnost</span>
+                  <span class="tag">alati za dizajn</span>
+                </div>
+              </div>
+              <div class="spec-block">
+                <h4>Mogući poslovi</h4>
+                <p class="program-card__who">Grafički/brend dizajner · ilustrator</p>
+              </div>
+            </div>
+            <div class="program-card__foot">
+              <a class="btn btn--outline-ink btn--block" href="https://www.metropolitan.ac.rs/fakultet-digitalnih-umetnosti-2/graficki-dizajn/" target="_blank" rel="noopener">Istraži program ↗</a>
+            </div>
+          </article>
+
+          <!-- DIM -->
+          <article class="program-card">
+            <div class="program-card__top">
+              <span class="program-card__tag">DIM · ✨</span>
+              <h3>Dizajn interaktivnih medija</h3>
+              <p class="program-card__faculty">Fakultet digitalnih umetnosti</p>
+            </div>
+            <div class="program-card__body">
+              <p class="program-card__who"><b>Za koga:</b> spaja te kreativnost i tehnologija — web, animacija, interakcija i UX.</p>
+              <div class="spec-block">
+                <h4>Ključni predmeti</h4>
+                <ul>
+                  <li>UX/UI dizajn</li>
+                  <li>Interaktivni mediji</li>
+                  <li>Web dizajn</li>
+                  <li>Animacija</li>
+                  <li>Motion grafika</li>
+                </ul>
+              </div>
+              <div class="spec-block">
+                <h4>Veštine</h4>
+                <div class="tag-list">
+                  <span class="tag">UX/UI</span>
+                  <span class="tag">prototipovanje</span>
+                  <span class="tag">kreativni kod</span>
+                </div>
+              </div>
+              <div class="spec-block">
+                <h4>Mogući poslovi</h4>
+                <p class="program-card__who">UX/UI dizajner · interaktivni/web dizajner</p>
+              </div>
+            </div>
+            <div class="program-card__foot">
+              <a class="btn btn--outline-ink btn--block" href="https://www.metropolitan.ac.rs/fakultet-digitalnih-umetnosti-2/dizajn-interaktivnih-medija/" target="_blank" rel="noopener">Istraži program ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabela poređenja -->
+    <section class="section section--white">
+      <div class="container">
+        <span class="eyebrow">Sve na jednom mestu</span>
+        <h2 class="section-title">Poređenje smerova</h2>
+        <p class="section-lead">Brzi pregled — za koga je smer, koje veštine gradiš i gde možeš da radiš. Na manjim ekranima tabela se skroluje levo-desno.</p>
+
+        <div class="table-wrap mt-6">
+          <table class="compare">
+            <caption>Poređenje pet smerova Univerziteta Metropolitan (skroluj horizontalno za sve kolone).</caption>
+            <thead>
+              <tr>
+                <th scope="col">Smer</th>
+                <th scope="col">Za koga</th>
+                <th scope="col">Veštine</th>
+                <th scope="col">Mogući poslovi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Softversko inženjerstvo</td>
+                <td>Voliš da rešavaš probleme kodom i praviš aplikacije.</td>
+                <td>Programiranje, timski razvoj, dizajn sistema</td>
+                <td>Software developer, backend/frontend, mobilni dev</td>
+              </tr>
+              <tr>
+                <td>Razvoj video igara</td>
+                <td>Voliš igre i hoćeš da ih praviš.</td>
+                <td>Game dev, gejmplej logika, vizuelni dizajn</td>
+                <td>Game developer, gameplay programer, tehnički dizajner</td>
+              </tr>
+              <tr>
+                <td>Digitalni biznis i marketing</td>
+                <td>Zanimaju te biznis, brendovi, mreže i online prodaja.</td>
+                <td>Marketing strategija, analitika, komunikacija</td>
+                <td>Digital marketer, social media manager, biznis menadžer</td>
+              </tr>
+              <tr>
+                <td>Grafički dizajn</td>
+                <td>Voliš vizuelno izražavanje, tipografiju i brendove.</td>
+                <td>Vizuelni dizajn, kreativnost, alati za dizajn</td>
+                <td>Grafički/brend dizajner, ilustrator</td>
+              </tr>
+              <tr>
+                <td>Dizajn interaktivnih medija</td>
+                <td>Spaja te kreativnost i tehnologija — web, animacija, interakcija.</td>
+                <td>UX/UI, prototipovanje, kreativni kod</td>
+                <td>UX/UI dizajner, interaktivni/web dizajner</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cta-banner mt-6">
+          <h2>Još uvek se kolebaš?</h2>
+          <p>Pusti kviz da uradi posao. Swipe-uj 12 kartica i dobićeš predlog smera baš za tebe.</p>
+          <div class="btn-row btn-row--center">
+            <a class="btn btn--primary btn--lg" href="kviz.html">⚡ Uradi kviz</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="MET Vodič — početna">
+            <span class="brand__mark" aria-hidden="true">M</span>
+            <span class="brand__name">MET<b>Vodič</b></span>
+          </a>
+          <p>Nezvanični vodič koji pomaže srednjoškolcima da izaberu smer na Univerzitetu Metropolitan. Autorski projekat za „Make IT Day @ MET”.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sekcije</h4>
+          <ul>
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="smerovi.html">Smerovi</a></li>
+            <li><a href="kviz.html">Kviz</a></li>
+            <li><a href="upis.html">Upis</a></li>
+            <li><a href="izvori.html">Izvori</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Lokacije</h4>
+          <p class="footer-loc"><b>Beograd</b><br />Tadeuša Košćuška 63</p>
+          <p class="footer-loc mt-4"><b>Niš</b><br />Bulevar Svetog Cara Konstantina 80A</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 MET Vodič — autorski takmičarski rad.</span>
+        <span>Nezvanično. Za tačne informacije proveri <a href="https://www.metropolitan.ac.rs/" target="_blank" rel="noopener">metropolitan.ac.rs</a>.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
