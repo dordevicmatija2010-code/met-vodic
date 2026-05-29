@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/enhance.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Preskoči na sadržaj</a>
@@ -89,8 +90,13 @@
 
         <article class="result-main">
           <span class="result-main__badge">Najbolje poklapanje</span>
-          <div class="result-main__emoji" id="resEmoji" aria-hidden="true">🎯</div>
-          <h3 id="resName">—</h3>
+          <div class="match-ring" id="matchRing" style="--val:0">
+            <div class="match-ring__inner">
+              <div class="match-ring__num" id="resPct">0%</div>
+              <div class="match-ring__lbl">poklapanje</div>
+            </div>
+          </div>
+          <h3 id="resName"><span id="resEmoji" aria-hidden="true">🎯</span> —</h3>
           <p class="result-main__faculty" id="resFaculty">—</p>
           <p id="resDesc">—</p>
           <p class="result-main__score" id="resScore"></p>
@@ -98,9 +104,9 @@
         </article>
 
         <div class="result-alts" id="resAlts">
-          <h4>Razmotri i ove smerove</h4>
-          <div class="alt-grid" id="altGrid">
-            <!-- alternative ubacuje quiz.js -->
+          <h4>Koliko ti koji smer odgovara</h4>
+          <div class="match-list" id="matchList">
+            <!-- rang-lista svih smerova sa barovima ubacuje quiz.js -->
           </div>
         </div>
 
@@ -164,5 +170,6 @@
 
   <script src="js/main.js"></script>
   <script src="js/quiz.js"></script>
+  <script src="js/enhance.js"></script>
 </body>
 </html>

@@ -350,50 +350,89 @@
     if (progressPct) progressPct.textContent = "100%";
     if (progressFill) progressFill.style.width = "100%";
 
-    // Rangiraj smerove po poenima (opadajuće).
+    // Maksimum mogućih poena po smeru (koliko kartica nosi taj tag).
+    var MAX = { SI: 0, RVI: 0, DBM: 0, GD: 0, DIM: 0 };
+    CARDS.forEach(function (c) {
+      c.tags.forEach(function (t) { if (MAX[t] !== undefined) MAX[t]++; });
+    });
+
+    // Procenat poklapanja po smeru (0–100).
+    var pct = {};
+    Object.keys(scores).forEach(function (k) {
+      pct[k] = MAX[k] ? Math.round((scores[k] / MAX[k]) * 100) : 0;
+    });
+
+    // Rangiraj: prvo po procentu, pa po sirovim poenima.
     var ranked = Object.keys(scores).sort(function (a, b) {
+      if (pct[b] !== pct[a]) return pct[b] - pct[a];
       return scores[b] - scores[a];
     });
 
-    // Ako su svi nule (sve prevučeno levo), ponudi neutralni predlog.
     var top = ranked[0];
-    var alt1 = ranked[1];
-    var alt2 = ranked[2];
-
     var main = PROGRAMS[top];
+    var topPct = pct[top];
+    var allZero = scores[top] === 0;
 
-    // Popuni glavnu preporuku
-    setText("resEmoji", main.emoji);
-    setText("resName", main.name);
+    // Glavna preporuka (emoji + naziv u istom h3)
+    var nameEl = document.getElementById("resName");
+    if (nameEl) {
+      nameEl.innerHTML =
+        '<span id="resEmoji" aria-hidden="true">' + main.emoji + "</span> " + main.name;
+    }
     setText("resFaculty", main.faculty);
     setText("resDesc", main.desc);
 
     var link = document.getElementById("resLink");
     if (link) link.href = main.url;
 
+    // Prsten poklapanja
+    var ring = document.getElementById("matchRing");
+    var pctNum = document.getElementById("resPct");
+    var ringVal = allZero ? 0 : topPct;
+    if (pctNum) pctNum.textContent = "0%";
+    if (ring) ring.style.setProperty("--val", "0");
+    // animiraj prsten + broj posle prikaza
+    window.setTimeout(function () {
+      if (ring) ring.style.setProperty("--val", String(ringVal));
+      animateNumber(pctNum, ringVal, 1000);
+    }, 200);
+
     var scoreEl = document.getElementById("resScore");
     if (scoreEl) {
-      if (scores[top] === 0) {
-        scoreEl.textContent = "Nisi prevukao/la nijednu karticu desno — pogledaj sve smerove i probaj ponovo.";
+      if (allZero) {
+        scoreEl.textContent = "Nisi prevukao/la nijednu karticu desno — pogledaj rang ispod i probaj ponovo.";
       } else {
-        scoreEl.textContent = "Poklapanje: " + scores[top] + " od mogućih poena na ovom smeru.";
+        scoreEl.textContent = "Tvoji odgovori najviše naginju ka ovom smeru.";
       }
     }
 
-    // Alternative
-    var altGrid = document.getElementById("altGrid");
-    if (altGrid) {
-      altGrid.innerHTML = "";
-      [alt1, alt2].forEach(function (key) {
+    // Rang-lista svih smerova sa barovima
+    var listEl = document.getElementById("matchList");
+    if (listEl) {
+      listEl.innerHTML = "";
+      ranked.forEach(function (key, i) {
         var p = PROGRAMS[key];
-        var card = document.createElement("article");
-        card.className = "alt-card";
-        card.innerHTML =
-          "<h5>" + p.emoji + " " + p.name + "</h5>" +
-          "<span>" + p.faculty + "</span>" +
-          '<a href="' + p.url + '" target="_blank" rel="noopener">Istraži program ↗</a>';
-        altGrid.appendChild(card);
+        var row = document.createElement("div");
+        row.className = "match-row" + (i === 0 && !allZero ? " match-row--top" : "");
+        row.innerHTML =
+          '<div class="match-row__head">' +
+            '<span class="match-row__name">' +
+              '<span aria-hidden="true">' + p.emoji + "</span> " +
+              '<a href="' + p.url + '" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">' +
+                p.name + "</a>" +
+            "</span>" +
+            '<span class="match-row__pct">' + pct[key] + "%</span>" +
+          "</div>" +
+          '<div class="match-track"><div class="match-fill" style="width:0"></div></div>';
+        listEl.appendChild(row);
       });
+      // animiraj barove
+      window.setTimeout(function () {
+        var fills = listEl.querySelectorAll(".match-fill");
+        ranked.forEach(function (key, i) {
+          if (fills[i]) fills[i].style.width = pct[key] + "%";
+        });
+      }, 260);
     }
 
     // Pripremi "Preporuči prijatelju"
@@ -403,8 +442,39 @@
     if (deckArea) deckArea.hidden = true;
     if (resultEl) {
       resultEl.hidden = false;
-      resultEl.focus && resultEl.setAttribute("tabindex", "-1");
-      resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      resultEl.setAttribute("tabindex", "-1");
+      scrollToEl(resultEl);
+    }
+
+    // Konfete (samo ako ima poklapanja)
+    if (!allZero && window.metConfetti) {
+      window.setTimeout(window.metConfetti, 350);
+    }
+  }
+
+  // Mali helper: animiraj broj u elementu do cilja (sa "%").
+  function animateNumber(el, target, dur) {
+    if (!el) return;
+    var start = null;
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target) + "%";
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    // Siguran fallback: ako se rAF pauzira (van ekrana), postavi finalnu vrednost.
+    window.setTimeout(function () { el.textContent = target + "%"; }, dur + 250);
+  }
+
+  // Bezbedan skrol do elementa (bez scrollIntoView).
+  function scrollToEl(el) {
+    try {
+      var y = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 80;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    } catch (e) {
+      window.scrollTo(0, 0);
     }
   }
 
@@ -526,7 +596,7 @@
   if (btnRetry) {
     btnRetry.addEventListener("click", function () {
       init();
-      if (deckArea) deckArea.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (deckArea) scrollToEl(deckArea);
     });
   }
 
