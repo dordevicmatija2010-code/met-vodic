@@ -7,12 +7,12 @@
 /* ---------- 1. Dizajn-tokeni (CSS varijable) ---------- */
 :root {
   /* Paleta */
-  --navy-900: #0E1B36;
-  --navy-800: #16294E;
-  --navy-700: #1F3768;
-  --gold-500: #E1A92E;
-  --gold-400: #F0BC4C;
-  --ink:      #0B1424;
+  --navy-900: #222222;
+  --navy-800: #272727;
+  --navy-700: #333333;
+  --gold-500: #DB0C46;
+  --gold-400: #E7134E;
+  --ink:      #111111;
   --paper:    #F7F8FB;
   --white:    #FFFFFF;
   --muted:    #9AA6BF;
@@ -218,7 +218,7 @@ ul { list-style: none; padding: 0; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(14, 27, 54, 0.85);
+  background: rgba(34, 34, 34, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-dark);
@@ -252,7 +252,7 @@ ul { list-style: none; padding: 0; }
   place-items: center;
   font-weight: 900;
   font-size: 1.05rem;
-  box-shadow: 0 4px 14px rgba(225, 169, 46, 0.4);
+  box-shadow: 0 4px 14px rgba(219, 12, 70, 0.4);
 }
 .brand__name b { color: var(--gold-400); }
 
@@ -345,7 +345,7 @@ ul { list-style: none; padding: 0; }
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(225,169,46,0.16), transparent 60%),
+    radial-gradient(1200px 600px at 80% -10%, rgba(219,12,70,0.16), transparent 60%),
     linear-gradient(160deg, var(--navy-900) 0%, var(--navy-800) 55%, var(--navy-700) 100%);
   color: var(--white);
   padding-block: clamp(3.5rem, 2rem + 8vw, 7rem);
@@ -377,7 +377,7 @@ ul { list-style: none; padding: 0; }
 .hero__badge .dot {
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--gold-500);
-  box-shadow: 0 0 0 4px rgba(225,169,46,0.25);
+  box-shadow: 0 0 0 4px rgba(219,12,70,0.25);
 }
 .hero h1 {
   font-size: var(--fs-3xl);
@@ -433,7 +433,7 @@ ul { list-style: none; padding: 0; }
   flex-direction: column;
   gap: var(--sp-3);
 }
-.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(225,169,46,0.5); }
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(219,12,70,0.5); }
 
 .card__icon {
   width: 52px;
@@ -485,7 +485,7 @@ ul { list-style: none; padding: 0; }
   flex-direction: column;
   transition: transform var(--t), box-shadow var(--t), border-color var(--t);
 }
-.program-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(225,169,46,0.5); }
+.program-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(219,12,70,0.5); }
 .program-card__top {
   background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
   color: var(--white);
@@ -567,7 +567,7 @@ ul { list-style: none; padding: 0; }
   top: 0;
 }
 .compare tbody tr:nth-child(even) { background: var(--paper); }
-.compare tbody tr:hover { background: rgba(225,169,46,0.08); }
+.compare tbody tr:hover { background: rgba(219,12,70,0.08); }
 .compare td:first-child { font-weight: 700; color: var(--navy-800); font-family: var(--font-display); }
 
 /* ---------- 10. Timeline (upis) ---------- */
@@ -615,7 +615,7 @@ ul { list-style: none; padding: 0; }
 /* ---------- 11. CTA banner ---------- */
 .cta-banner {
   background:
-    radial-gradient(700px 300px at 90% 0%, rgba(225,169,46,0.18), transparent 60%),
+    radial-gradient(700px 300px at 90% 0%, rgba(219,12,70,0.18), transparent 60%),
     linear-gradient(160deg, var(--navy-900), var(--navy-700));
   color: var(--white);
   border-radius: var(--radius-lg);
@@ -631,8 +631,8 @@ ul { list-style: none; padding: 0; }
   display: flex;
   gap: var(--sp-4);
   align-items: flex-start;
-  background: rgba(225,169,46,0.10);
-  border: 1px solid rgba(225,169,46,0.45);
+  background: rgba(219,12,70,0.10);
+  border: 1px solid rgba(219,12,70,0.45);
   border-left: 5px solid var(--gold-500);
   border-radius: var(--radius);
   padding: var(--sp-5);
@@ -655,7 +655,7 @@ ul { list-style: none; padding: 0; }
   box-shadow: var(--shadow-sm);
   transition: border-color var(--t), transform var(--t);
 }
-.source-item:hover { border-color: rgba(225,169,46,0.5); transform: translateX(4px); }
+.source-item:hover { border-color: rgba(219,12,70,0.5); transform: translateX(4px); }
 .source-item__label { font-family: var(--font-display); font-weight: 700; color: var(--navy-800); }
 .source-item a { color: var(--navy-700); word-break: break-all; font-size: var(--fs-sm); }
 .source-item a:hover { color: var(--gold-500); }
@@ -665,7 +665,7 @@ ul { list-style: none; padding: 0; }
    ===================================================================== */
 .quiz {
   background:
-    radial-gradient(900px 500px at 50% -10%, rgba(225,169,46,0.14), transparent 60%),
+    radial-gradient(900px 500px at 50% -10%, rgba(219,12,70,0.14), transparent 60%),
     linear-gradient(160deg, var(--navy-900), var(--navy-800));
   color: var(--white);
   flex: 1;

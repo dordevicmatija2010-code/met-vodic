@@ -8,7 +8,7 @@
 :root {
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --glow-gold: 0 0 0 1px rgba(225,169,46,0.35), 0 18px 40px -12px rgba(225,169,46,0.45);
+  --glow-gold: 0 0 0 1px rgba(219,12,70,0.35), 0 18px 40px -12px rgba(219,12,70,0.45);
   --surface-2: var(--white);
   --text-soft: #4a5775;
   --text-softer: #34405c;
@@ -30,7 +30,7 @@ body,
    ===================================================================== */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper:  #0B1426;
+  --paper:  #111111;
   --ink:    #EAF0FB;
   --muted:  #8ea0c4;
   --line-light: rgba(255,255,255,0.10);
@@ -46,8 +46,8 @@ body,
 :root[data-theme="dark"] .btn--primary { color: var(--navy-900); }
 
 :root[data-theme="dark"] body { background: var(--paper); color: var(--ink); }
-:root[data-theme="dark"] .section--paper { background: #0B1426; }
-:root[data-theme="dark"] .section--white { background: #0E1830; }
+:root[data-theme="dark"] .section--paper { background: #111111; }
+:root[data-theme="dark"] .section--white { background: #1A1A1A; }
 
 /* Tekstovi koji su u styles.css hard-kodirani na svetlu paletu */
 :root[data-theme="dark"] .card p,
@@ -68,15 +68,15 @@ body,
 :root[data-theme="dark"] .program-card,
 :root[data-theme="dark"] .tl-step__card,
 :root[data-theme="dark"] .source-item,
-:root[data-theme="dark"] .table-wrap { background: #14213f; border-color: var(--line-light); }
+:root[data-theme="dark"] .table-wrap { background: #1F1F1F; border-color: var(--line-light); }
 :root[data-theme="dark"] .tag { background: var(--surface-2); border-color: var(--line-light); color: #d8e2f7; }
 :root[data-theme="dark"] .compare tbody tr:nth-child(even) { background: rgba(255,255,255,0.03); }
 :root[data-theme="dark"] .compare th, :root[data-theme="dark"] .compare td { border-color: var(--line-light); }
 :root[data-theme="dark"] .btn--outline-ink { color: var(--ink); border-color: var(--line-light); }
 :root[data-theme="dark"] .btn--outline-ink:hover { color: var(--gold-400); border-color: var(--gold-400); }
-:root[data-theme="dark"] .swipe-card { background: linear-gradient(165deg, #1d2f54, #14213f); }
+:root[data-theme="dark"] .swipe-card { background: linear-gradient(165deg, #2B2B2B, #1F1F1F); }
 :root[data-theme="dark"] .swipe-card__text { color: #eaf0fb; }
-:root[data-theme="dark"] .result-main { background: linear-gradient(135deg, #1d2f54, #14213f); }
+:root[data-theme="dark"] .result-main { background: linear-gradient(135deg, #2B2B2B, #1F1F1F); }
 :root[data-theme="dark"] .result-main h3 { color: #fff; }
 
 /* =====================================================================
@@ -115,8 +115,8 @@ body,
    ===================================================================== */
 .hero {
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(225,169,46,0.18), transparent 60%),
-    radial-gradient(900px 500px at 0% 110%, rgba(31,55,104,0.55), transparent 55%),
+    radial-gradient(1200px 600px at 80% -10%, rgba(219,12,70,0.18), transparent 60%),
+    radial-gradient(900px 500px at 0% 110%, rgba(51,51,51,0.55), transparent 55%),
     linear-gradient(160deg, var(--navy-900) 0%, var(--navy-800) 55%, var(--navy-700) 100%);
 }
 /* Spori "aurora" sjaj */
@@ -126,8 +126,8 @@ body,
   inset: -20%;
   z-index: 0;
   background:
-    radial-gradient(40% 50% at 70% 30%, rgba(225,169,46,0.14), transparent 70%),
-    radial-gradient(45% 55% at 25% 75%, rgba(80,120,220,0.18), transparent 70%);
+    radial-gradient(40% 50% at 70% 30%, rgba(219,12,70,0.14), transparent 70%),
+    radial-gradient(45% 55% at 25% 75%, rgba(231,19,78,0.18), transparent 70%);
   filter: blur(10px);
   animation: heroDrift 18s ease-in-out infinite alternate;
   pointer-events: none;
@@ -166,8 +166,8 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
 /* Badge dot — nežan puls */
 .hero__badge .dot { animation: dotPulse 2.4s ease-in-out infinite; }
 @keyframes dotPulse {
-  0%, 100% { box-shadow: 0 0 0 4px rgba(225,169,46,0.25); }
-  50%      { box-shadow: 0 0 0 7px rgba(225,169,46,0.08); }
+  0%, 100% { box-shadow: 0 0 0 4px rgba(219,12,70,0.25); }
+  50%      { box-shadow: 0 0 0 7px rgba(219,12,70,0.08); }
 }
 
 /* Hero meta brojevi — naglašeni */
@@ -207,7 +207,7 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
   position: absolute; inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(160deg, rgba(225,169,46,0.0), rgba(225,169,46,0.0));
+  background: linear-gradient(160deg, rgba(219,12,70,0.0), rgba(219,12,70,0.0));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
   opacity: 0; transition: opacity var(--t), background var(--t);
@@ -215,13 +215,13 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
 }
 .card:hover::before {
   opacity: 1;
-  background: linear-gradient(160deg, rgba(225,169,46,0.6), rgba(225,169,46,0.05) 60%);
+  background: linear-gradient(160deg, rgba(219,12,70,0.6), rgba(219,12,70,0.05) 60%);
 }
 .card:hover { box-shadow: 0 20px 44px -16px rgba(8,15,30,0.4); }
 .card__icon { transition: transform var(--t-spring, 0.4s) var(--ease-spring), box-shadow var(--t); }
 .card:hover .card__icon {
   transform: translateY(-2px) rotate(-4deg) scale(1.06);
-  box-shadow: 0 10px 24px -8px rgba(225,169,46,0.5);
+  box-shadow: 0 10px 24px -8px rgba(219,12,70,0.5);
 }
 
 /* Numerisana kartica — veliki duh-broj */
@@ -235,7 +235,7 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
   content: "";
   position: absolute; right: -10px; top: -18px;
   width: 90px; height: 90px;
-  background: radial-gradient(circle, rgba(225,169,46,0.14), transparent 70%);
+  background: radial-gradient(circle, rgba(219,12,70,0.14), transparent 70%);
   pointer-events: none;
 }
 
@@ -244,7 +244,7 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
 .program-card__top::after {
   content: "";
   position: absolute; inset: 0;
-  background: radial-gradient(120% 80% at 100% 0%, rgba(225,169,46,0.22), transparent 55%);
+  background: radial-gradient(120% 80% at 100% 0%, rgba(219,12,70,0.22), transparent 55%);
   pointer-events: none;
 }
 .program-card:hover .program-card__tag { transform: translateY(-1px); }
@@ -285,13 +285,13 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
 .swipe-card__emoji {
   display: inline-grid; place-items: center;
   width: 84px; height: 84px; border-radius: 22px;
-  background: linear-gradient(150deg, rgba(225,169,46,0.16), rgba(31,55,104,0.10));
+  background: linear-gradient(150deg, rgba(219,12,70,0.16), rgba(51,51,51,0.10));
   font-size: 2.6rem;
 }
 .swipe-card__stamp { backdrop-filter: blur(1px); }
 
 /* Dugmad špila — bolji glow */
-.swipe-btn--yes:hover { box-shadow: 0 12px 28px -8px rgba(225,169,46,0.6); }
+.swipe-btn--yes:hover { box-shadow: 0 12px 28px -8px rgba(219,12,70,0.6); }
 .swipe-btn--no:hover  { box-shadow: 0 12px 28px -8px rgba(234,84,85,0.5); }
 
 /* === Match barovi (novi prikaz rezultata) === */
@@ -324,7 +324,7 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
 }
 .match-row--top .match-fill {
   background: linear-gradient(90deg, var(--gold-500), var(--gold-400));
-  box-shadow: 0 0 14px rgba(225,169,46,0.5);
+  box-shadow: 0 0 14px rgba(219,12,70,0.5);
 }
 .match-row--top .match-row__name::after {
   content: "Najbolje poklapanje";
@@ -348,7 +348,7 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
 }
 :root[data-theme="dark"] .match-ring {
   background:
-    radial-gradient(closest-side, #1d2f54 75%, transparent 76% 100%),
+    radial-gradient(closest-side, #2B2B2B 75%, transparent 76% 100%),
     conic-gradient(var(--gold-500) calc(var(--val) * 1%), rgba(255,255,255,0.12) 0);
 }
 .match-ring__inner { text-align: center; }
@@ -382,8 +382,8 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
 /* =====================================================================
    9. TIMELINE — animirana linija + pulsni broj
    ===================================================================== */
-.tl-step__num { box-shadow: 0 0 0 6px rgba(225,169,46,0.10); transition: box-shadow var(--t), transform var(--t); }
-.tl-step:hover .tl-step__num { transform: scale(1.06); box-shadow: 0 0 0 9px rgba(225,169,46,0.16); }
+.tl-step__num { box-shadow: 0 0 0 6px rgba(219,12,70,0.10); transition: box-shadow var(--t), transform var(--t); }
+.tl-step:hover .tl-step__num { transform: scale(1.06); box-shadow: 0 0 0 9px rgba(219,12,70,0.16); }
 .tl-step__card { position: relative; transition: transform var(--t), box-shadow var(--t); }
 .tl-step:hover .tl-step__card { transform: translateX(4px); box-shadow: var(--shadow); }
 
@@ -395,7 +395,7 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
   content: ""; position: absolute; left: var(--sp-4); top: 50%;
   width: 8px; height: 8px; transform: translateY(-50%);
   border-radius: 50%; background: var(--gold-500);
-  box-shadow: 0 0 0 4px rgba(225,169,46,0.15);
+  box-shadow: 0 0 0 4px rgba(219,12,70,0.15);
 }
 
 /* =====================================================================
@@ -405,13 +405,13 @@ body.anim-ready .hero__meta   { animation: heroUp 0.7s var(--ease-out) 0.32s bot
   position: fixed; top: 0; left: 0; height: 3px; width: 0%;
   background: linear-gradient(90deg, var(--gold-500), var(--gold-400));
   z-index: 300; transition: width 0.1s linear;
-  box-shadow: 0 0 10px rgba(225,169,46,0.6);
+  box-shadow: 0 0 10px rgba(219,12,70,0.6);
 }
 
 /* =====================================================================
    12. Footer brand mark — nežan glow
    ===================================================================== */
-.footer-brand .brand__mark { box-shadow: 0 6px 20px rgba(225,169,46,0.30); }
+.footer-brand .brand__mark { box-shadow: 0 6px 20px rgba(219,12,70,0.30); }
 .site-footer a { transition: color var(--t); }
 
 /* =====================================================================

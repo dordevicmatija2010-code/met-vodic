@@ -22,7 +22,7 @@
     if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
     else document.documentElement.removeAttribute("data-theme");
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", t === "dark" ? "#0B1426" : "#0E1B36");
+    if (meta) meta.setAttribute("content", t === "dark" ? "#111111" : "#222222");
   }
 
   var stored = null;
@@ -98,7 +98,7 @@
   /* ---------- 4. KONFETE (poziva quiz.js preko window.metConfetti) ---------- */
   window.metConfetti = function () {
     if (reduceMotion) return;
-    var colors = ["#E1A92E", "#F0BC4C", "#1F3768", "#FFE6A6", "#28C76F"];
+    var colors = ["#DB0C46", "#E7134E", "#272727", "#FFFFFF", "#28C76F"];
     var n = 90;
     for (var i = 0; i < n; i++) {
       (function (i) {
